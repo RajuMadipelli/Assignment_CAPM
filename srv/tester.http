@@ -1,0 +1,165 @@
+###
+http://localhost:4004/odata/v4/employee/EmployeeSet
+
+###
+POST  http://localhost:4004/odata/v4/employee/EmployeeSet
+Content-Type: application/json
+
+{
+    "nameFirst": "RAJUmadipelli",
+  "nameMiddle": null,
+  "nameLast": "Spring",
+  "nameInitials": null,
+  "sex": "M",
+  "language": "E",
+  "phoneNumber": "+918179252690",
+  "email": "sally.spring@gmail.com",
+  "loginName": "SPRINGS",
+  "Currency_code": "USD",
+  "salaryAmount": 5554,
+  "accountNumber": "111222333",
+  "bankId": "510000655",
+  "bankName": "My Bank of Antioch"
+}
+
+### UPDATE
+PATCH http://localhost:4004/odata/v4/employee/EmployeeSet/500e6d78-e672-4b6f-9c6a-9fc82e4182b2
+Content-Type: application/json
+
+{
+  "nameFirst": "RAJUmadipelli",
+  "nameMiddle": null,
+  "nameLast": "Spring",
+  "nameInitials": null,
+  "sex": "M",
+  "language": "E",
+  "loginName": "SPRINGS",
+  "phoneNumber": "+918179252690"
+}
+
+
+### Get Service Document
+http://localhost:4004/odata/v4/employee
+ 
+
+
+### to get metatdata
+http://localhost:4004/odata/v4/employee/$metadata
+
+### to get employee details
+http://localhost:4004/odata/v4/employee/EmployeeSet
+
+###•	Get all the Employees whose name starts with ‘S’.
+http://localhost:4004/odata/v4/employee/EmployeeSet?$filter=startswith(nameFirst,'S')
+
+### •	Get the top 2 employees, use orderby salaryAmount.
+http://localhost:4004/odata/v4/employee/EmployeeSet?$orderby=salaryAmount desc&$top=2
+
+###  •	CREATE an employee with salary <50000 & currency code USD.
+
+POST  http://localhost:4004/odata/v4/employee/EmployeeSet
+Content-Type: application/json
+
+{
+    "nameFirst": "RAJUmadipelli",
+  "nameMiddle": null,
+  "nameLast": "Spring",
+  "nameInitials": null,
+  "sex": "M",
+  "language": "E",
+  "phoneNumber": "+918179252690",
+  "email": "sally.spring@gmail.com",
+  "loginName": "SPRINGS",
+  "Currency_code": "USD",
+  "salaryAmount": 5554,
+  "accountNumber": "111222333",
+  "bankId": "510000655",
+  "bankName": "My Bank of Antioch"
+}
+
+### •	CREATE an employee with salary >50000 & currency code USD.
+
+POST  http://localhost:4004/odata/v4/employee/EmployeeSet
+Content-Type: application/json
+
+{
+    "nameFirst": "RAJUmadipelli",
+  "nameMiddle": null,
+  "nameLast": "Spring",
+  "nameInitials": null,
+  "sex": "M",
+  "language": "E",
+  "phoneNumber": "+918179252690",
+  "email": "sally.spring@gmail.com",
+  "loginName": "SPRINGS",
+  "Currency_code": "USD",
+  "salaryAmount": 555400,
+  "accountNumber": "111222333",
+  "bankId": "510000655",
+  "bankName": "My Bank of Antioch"
+}
+
+###•	CREATE an employee with salary <50000 & currency code EUR.
+POST  http://localhost:4004/odata/v4/employee/EmployeeSet
+Content-Type: application/json
+
+{
+    "nameFirst": "anji",
+  "nameMiddle": null,
+  "nameLast": "Spring",
+  "nameInitials": null,
+  "sex": "M",
+  "language": "E",
+  "phoneNumber": "+918179252690",
+  "email": "sally.spring@gmail.com",
+  "loginName": "SPRINGS",
+  "Currency_code": "EUR",
+  "salaryAmount": 555,
+  "accountNumber": "111222333",
+  "bankId": "510000655",
+  "bankName": "My Bank of Antioch"
+}
+
+###•	UPDATE an employee by keeping the nameFirst and loginName intact.
+
+PATCH http://localhost:4004/odata/v4/employee/EmployeeSet/500e6d78-e672-4b6f-9c6a-9fc82e4182b2
+Content-Type: application/json
+
+{
+  "nameFirst": "RAJUmadipelli",
+  "nameMiddle": null,
+  "nameLast": "Spring",
+  "nameInitials": null,
+  "sex": "M",
+  "language": "E",
+  "loginName": "SPRINGS",
+  "phoneNumber": "+918179252690"
+}
+
+### UPDATING EMPLOYEE BY CHANGING LOGIN NAME
+
+PATCH http://localhost:4004/odata/v4/employee/EmployeeSet/500e6d78-e672-4b6f-9c6a-9fc82e4182b2
+Content-Type: application/json
+
+{
+  "nameFirst": "RAJUmadipelli",
+  "nameMiddle": null,
+  "nameLast": "Spring",
+  "nameInitials": null,
+  "sex": "M",
+  "language": "E",
+  "loginName": "SPRIN",
+  "phoneNumber": "+918179252690"
+}
+
+### •	DELETE any employee.
+DELETE http://localhost:4004/odata/v4/employee/EmployeeSet/500e6d78-e672-4b6f-9c6a-9fc82e4182b2
+
+
+###
+
+
+ ### •	DELETE an employee whose nameFirst starts with ‘S’. 
+DELETE http://localhost:4004/odata/v4/employee/EmployeeSet?$filter=startswith(nameFirst,'S')
+
+
